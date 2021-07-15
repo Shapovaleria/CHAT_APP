@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,300;0,600;1,300;1,400&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="../main_page/img/owl-ico.ico">
+  <link rel="stylesheet" href="style_login.css">
+</head>
+
+<body>
+  <header>
+    <h1>Owl post chat</h1>
+  </header>
+  <main>
+    <div class="authorize">
+      <form action="#" class="authorize-form" method="post">
+        <input required class="authorize-input" id="login" type="nickname" placeholder="Enter nickname">
+        <input required class="authorize-input" id="password" type="password" placeholder="Enter password">
+        <button class="authorize-submit" id="check">Log in</button>
+      </form>
+      <div class="authorize-error">
+        <p id="error" class="authorize-error-message">There is not an account for this username</p>
+      </div>
+      <p>If you don't have an account <a href="registration.html" class = 'link-to-reg'>click here</a> for registration.</p>
+      <img src="../main_page/img/owl.png" class='login-img' alt="logo">
+    </div>
+  </main>
+</body>
+
+</html>

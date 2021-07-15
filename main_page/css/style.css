@@ -1,0 +1,231 @@
+* {
+  font-family: 'Roboto Mono', monospace, Arial, sans-serif;
+}
+
+body {
+  background-image: url(../img/bg.jpg);
+  background-size: cover; 
+  max-width: 1200px;
+  min-height: 100%;
+  margin: 8px auto;
+}
+
+main {
+  width: 90%;
+  margin: 20px auto;
+  border-left: 2px solid #000;
+  border-right: 2px solid #000;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+/* -----------------------------header----------------- */
+
+header {
+  display: flex;
+  width: 95%;
+  padding: 5px 2.5%;
+  /* border-bottom: 1px solid #000; */
+}
+
+h1 {
+  display: inline-block;
+  position: relative;
+  bottom: 30%;
+  left: 12%;
+  font-family: 'Zen Tokyo Zoo', cursive;
+  font-weight: 300;
+  font-size: 50px;
+  margin: 10px 0;
+}
+
+
+.logo-img {
+  width: 12%;
+  margin:10px 30px 0 20px;
+}
+ .header-info {
+  width: 20%;
+  padding: 2%;
+}
+
+.header-logo {
+  width: 75%;
+  text-align: center;
+}
+
+.user-default-img {
+  width: 50px;
+  margin: -5% 0 5px 30%;
+  opacity: 70%;
+}
+.user-nickname {
+  display: block;
+  width: min-content;
+  margin-left: 28%;
+}
+.log-out {
+  background-color: #ffdcc5;
+  border: none;
+  padding: 5px;
+  position: relative;
+  left: 28%;
+  top: 11%;
+  font-size: 12px;
+  text-decoration: none;
+  display: inline-block;
+  color: #000;
+}
+
+.log-out:hover {
+  background-color:#f8caab ;
+}
+
+/* -----------------------------chat online----------------- */ 
+
+.chat-elements {
+  display: flex;
+  padding: 10px 2.5%;
+}
+
+.online-block {
+  width: 25%;
+  padding: 1%;
+  border: 1px solid #6e4006;
+  border-radius: 10px;
+  text-align: center;
+}
+.user-name {
+  font-weight: 600;
+  cursor: pointer;
+  font-style: italic;
+}
+.on-offline-users {
+  text-align: left;
+  min-height: 170px;
+}
+
+.on-offline-list {
+  padding-left: 25px;
+}
+.on-offline-list li{
+  margin: 5px ;
+  list-style-type:square;
+}
+
+.online {
+  border-bottom: 2px solid #009700;
+}
+
+.offline {
+  border-bottom: 2px solid #ca0303;
+}
+ /* -------------------------------main chat-------------- */
+.main-chat {
+  width: 70%;
+  padding:0 1%;
+}
+
+.chat-name {
+  display: inline-block;
+  margin: 5px 0 5px 15px;
+  background-color: #f8d76b;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.chat-name:hover {
+  background-color: #d1b557;
+}
+
+.conversation {
+  min-height: 140px;
+  padding: 1%;
+  margin-bottom: 10px;
+}
+
+.conversation p {
+  margin: 10px 0;
+}
+ /* ----------------------------writing message--------- */
+.write-a-message {
+  padding-top: 10px;
+  border-top: 1px solid #000;
+}
+
+.write-a-message textarea {
+  width: 95%;
+  min-height: 70px;
+  resize: none;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+.change-send-message {
+  text-align: center;
+  padding-top: 5px
+}
+
+.send-btn {
+  margin-left: 300px;
+}
+.message-info {
+  font-size: 14px;
+}
+.message-info ul {
+  list-style-type: none;
+}
+
+.edit-message-btn {
+  cursor: pointer;
+  border: none;
+  background-color:#fdbc91 ;
+  padding: 5px 10px;
+  margin-right: 3px;
+}
+
+.edit-message-btn:hover {
+  background-color: #f5a843;
+}
+
+.send-btn {
+  cursor: pointer;
+  border: none;
+  background-color: #fdbc91;
+  padding: 10px 15px;
+  font-size: 15px;
+}
+
+.send-btn:hover {
+  background-color: #f5a843;
+  color: #fff;
+}
+
+/* -----------------------------------footer-------- */
+
+footer {
+  flex: 0 0 auto;
+  width: 100%;
+ padding: 10px 5% 0 5%;
+}
+.footer-info {
+  width: 40%;
+  display: inline-block;
+}
+
+.footer-info p {
+  margin-top: -5px;
+}
+.footer-info a {
+  color: #000;
+ }
+
+.time-online, .time-local {
+  font-style: italic;
+}
+
+.made-by {
+  display: inline-block;
+  width: 50%;
+  text-align: right;
+}

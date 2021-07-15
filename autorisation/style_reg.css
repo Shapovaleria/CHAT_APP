@@ -1,0 +1,91 @@
+body {
+  font-family: 'Roboto Mono', monospace, Arial, sans-serif;
+  background-image: url(../main_page/img/bg.jpg);
+  background-size: cover;
+  max-width: 1200px;
+  margin: 8px auto;
+}
+
+header {
+  text-align: center;
+  padding: 5px 0;
+}
+
+h1 {
+  font-family: 'Zen Tokyo Zoo', cursive;
+  font-weight: 300;
+  font-size: 42px;
+}
+main {
+  display: flex;
+  width: 90%;
+  text-align: center;
+  margin: 10px auto;
+}
+
+.registration {
+  width: 60%;
+  padding: 50px 20px;
+}
+
+button, input {
+  font-family: 'Roboto Mono', monospace, Arial, sans-serif;
+}
+
+.reg-logo-img {
+  width: 21%;
+}
+
+.registration-form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.registration-form fieldset {
+  border:2px solid #ffa468;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.registration-form label {
+  display: inline-block;
+  width: 40%;
+}
+
+.authorize-input {
+  padding:10px;
+  border: 1px solid #eba63f;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.registration-submit {
+  padding: 8px 16px;
+  border: none;
+  margin-top: 8px;
+  background-color: #fdbc91;
+  cursor: pointer;
+}
+.registration-submit:hover {
+  background-color: #f5a843;
+}
+.link-to-login {
+  text-decoration: none;
+  color: #000;
+  display: inline-block;
+  background-color: #ffdcc5;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.link-to-login:hover {
+  background-color: #f8caab
+}
+.registration-form p {
+  margin: 0;
+}
+
+.p-to-login {
+  margin: 5px 0 0 0;
+}
+

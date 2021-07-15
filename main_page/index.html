@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,300;0,600;1,300;1,400&display=swap"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="img/owl-ico.ico">
+</head>
+
+<body>
+  <main>
+    <header>
+      <div class='header-logo'>
+        <img src="img/owl_main.png" class='logo-img' alt="logo">
+        <h1>Owl post chat</h1>
+      </div>
+      <div class='header-info'>
+        <img src="img/user.png" alt="user photo" class='user-default-img'>
+        <span class='user-nickname user-name'>Dobbie</span>
+        <a href="../autorisation/login.html" class='log-out'>Log out</a>
+      </div>
+    </header>
+
+    <div class='chat-elements'>
+      <div class='online-block'>
+        <span class='online'>Online: <span> 5</span></span>
+        <div class='on-offline-users'>
+          <nav>
+            <ul class='on-offline-list'>
+              <li class='user-name'>Harry Potter</li>
+              <li class='user-name'>Hermiona Granger</li>
+              <li class='user-name'>Ron Weasley</li>
+              <li class='user-name'>Hagrid</li>
+              <li class='user-name'>Lord Voldemort</li>
+            </ul>
+          </nav>
+        </div>
+        <span class='offline'>Offline: <span> 2</span></span>
+        <div class='on-offline-users'>
+          <nav>
+            <ul class='on-offline-list'>
+              <li class='user-name'>Albus Dumbledor</li>
+              <li class='user-name'>Fred Weasley</li>
+            </ul>
+          </nav>
+
+        </div>
+      </div>
+
+      <div class='main-chat'>
+        <div class='change-chat'>
+          <h4 class='chat-name'>Main chat</h4>
+        </div>
+        <div class='conversation'>
+          <p><span class='user-name'>Hagrid</span>: <span>You are a magician, Harry!</span></p>
+          <p><span class='user-name'>Harry Potter</span>: <span>wtf</span></p>
+          <p><span class='user-name'>Lord Voldemort</span>: <span>I'm going to kill you, Harry!</span></p>
+          <p><span class='user-name'>Harry Potter</span>: <span>WTF?!</span></p>
+          <p><span class='user-name'>Ron Weasley</span>: <span>lol</span></p>
+        </div>
+        <div class='write-a-message'>
+          <textarea></textarea>
+          <div class='change-send-message'>
+            <button class='edit-message-btn'><b>B</b></button>
+            <button class='edit-message-btn'><i>I</i></button>
+            <button class='edit-message-btn'><u>U</u></button>
+            <button class='send-btn'>Send message</button>
+          </div>
+          <div class='message-info'>
+            <ul>
+              <li><span>31</span> characters entered</li>
+              <li><span>25</span> letters entered</li>
+              <li><span>4</span> whitespace characters entered</li>
+              <li><span>2</span> punctuation marks entered</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class='footer-info'>
+      <p>Your local time is: <span class='time-local'>10:45</span></p>
+      <p>You are online for: <span class='time-online'>1 h 30 min</span></p>
+    </div>
+   <div class = 'made-by'>
+<p>Project is made by Valeriia Shapoval</p>
+   </div>
+  
+  </footer>
+</body>
+
+</html>

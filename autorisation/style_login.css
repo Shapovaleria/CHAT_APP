@@ -1,0 +1,82 @@
+body {
+  font-family: 'Roboto Mono', monospace, Arial, sans-serif;
+  background-image: url(../main_page/img/bg.jpg);
+  background-size: cover;
+  max-width: 1200px;
+  margin: 8px auto;
+}
+
+header {
+  text-align: center;
+  padding: 5px 0;
+}
+
+h1 {
+  margin: 8px 0 3px 0;
+  font-family: 'Zen Tokyo Zoo', cursive;
+  font-weight: 300;
+  font-size: 42px;
+}
+
+main {
+  width: 80%;
+  text-align: center;
+  margin: 10px auto;
+}
+
+button, input {
+  font-family: 'Roboto Mono', monospace, Arial, sans-serif;
+}
+.authorize {
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.authorize-form {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+}
+
+.authorize-input {
+  padding:10px;
+  border: 1px solid #eba63f;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.authorize-error {
+  visibility: hidden;
+  text-decoration: underline #eb7e3f;
+}
+
+.authorize-error p {
+  margin:3px 0 0 0;
+}
+
+.authorize-submit {
+  padding: 8px 16px;
+  border: none;
+  margin-top: 8px;
+  background-color: #fdbc91;
+  cursor: pointer;
+}
+
+.authorize-submit:hover {
+  background-color: #f5a843;
+}
+
+.link-to-reg {
+  text-decoration: none;
+  color: #000;
+  display: inline-block;
+  background-color: #ffdcc5;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.link-to-reg:hover {
+  background-color: #f8caab
+}
+
