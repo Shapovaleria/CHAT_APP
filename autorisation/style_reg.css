@@ -24,7 +24,7 @@ main {
 }
 
 .registration {
-  width: 60%;
+  width: 70%;
   padding: 50px 20px;
 }
 
@@ -34,6 +34,7 @@ button, input {
 
 .reg-logo-img {
   width: 21%;
+  max-height: 440px;
 }
 
 .registration-form {

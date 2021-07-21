@@ -31,6 +31,9 @@ button, input {
   max-width: 70%;
   margin: 0 auto;
 }
+.authorize p {
+  margin: 10px 0 0 0;
+}
 
 .authorize-form {
   display: flex;
@@ -46,12 +49,14 @@ button, input {
 }
 
 .authorize-error {
-  visibility: hidden;
+  display:none;
   text-decoration: underline #eb7e3f;
+  font-size: 14px;
+  font-style: italic;
 }
 
 .authorize-error p {
-  margin:3px 0 0 0;
+  margin:5px 0 0 0;
 }
 
 .authorize-submit {
