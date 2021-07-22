@@ -1,4 +1,4 @@
-document.querySelector('.authorize-submit').onclick = function (event, data) {
+document.querySelector('.authorize-submit').onclick = function (event) {
   event.preventDefault();
 
   function loginOfUser(method, url) {
@@ -11,27 +11,32 @@ document.querySelector('.authorize-submit').onclick = function (event, data) {
         alert(`oops, its a mistake here ${xhr.status}: ${xhr.statusText}`);
       } else {
         let result = JSON.parse(xhr.responseText)
-        getData(result);
+        checkUser(result);
       }
     }
   }
 
   let username = document.querySelector('#login').value;
   let password = document.querySelector('#password').value;
-  function getData(data) {
+
+  function checkUser(data) {
     for (elem of data) {
       if (elem.username == username && elem.password == password) {
+        localStorage.setItem('userName', username);
+        elem.status = 'active';
         window.location.href = '../main_page/index.html';
-        localStorage.setItem('userName', username)
+        return true;
       }
       else {
         document.querySelector('.authorize-error').style.display = 'inherit';
       }
     }
   }
+   
 
   loginOfUser('GET', 'https://studentschat.herokuapp.com/users/');
 }
+
 
 
 

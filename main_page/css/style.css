@@ -91,7 +91,7 @@ h1 {
 .online-block {
   width: 25%;
   padding: 1%;
-  border: 1px solid #6e4006;
+  border: 1px solid #da7c0a;
   border-radius: 10px;
   text-align: center;
 }
@@ -103,6 +103,7 @@ h1 {
 .on-offline-users {
   text-align: left;
   min-height: 170px;
+  margin-bottom: 13px;
 }
 
 .on-offline-list {
@@ -110,7 +111,19 @@ h1 {
 }
 .on-offline-list li{
   margin: 5px ;
-  list-style-type:square;
+  list-style-type:none;
+}
+
+#online-list li::before{
+  content:'►';
+  color: #009700;
+  margin-right:8px;
+}
+
+#offline-list li::before{
+  content:'►';
+  color: #ca0303;
+  margin-right:8px;
 }
 
 .online {
@@ -120,6 +133,20 @@ h1 {
 .offline {
   border-bottom: 2px solid #ca0303;
 }
+
+.add-scroll {
+  overflow-y: scroll;
+  height: 240px;
+  cursor: pointer;
+}
+.add-scroll::-webkit-scrollbar {
+  width: 7px;
+  background-color: #ffffff;
+}
+.add-scroll::-webkit-scrollbar-thumb {
+  background-color: #f5a843;
+}
+
  /* -------------------------------main chat-------------- */
 .main-chat {
   width: 70%;
