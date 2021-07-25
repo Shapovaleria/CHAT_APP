@@ -21,8 +21,13 @@ amountOfOnline.value = 0;
 let amountOfOffline = document.querySelector('#amount-of-offline');
 amountOfOffline.value = 0;
 
+
 function getUsers(data) {
   for (let i = 0; i < data.length; i++) {
+    if (data[i].username == localStorage.userName) {
+     let currentUser = data[i];
+     console.log(currentUser)
+    }
     if (data[i].status == 'active') {
       let li = document.createElement('li');
       li.innerHTML = `${data[i].username}`;
@@ -42,20 +47,31 @@ function getUsers(data) {
   amountOfOffline.innerText = `${amountOfOffline.value}`
 
   let onOfflineDiv = document.querySelector('.on-offline-users');
-  function addScroll() {
+
+  function addScrollOfUsers() {
     if(amountOfOnline.value >= 8 || amountOfOffline.value >= 5) {
       onOfflineDiv.classList.add('add-scroll');
     } 
   }
-  addScroll();
+  addScrollOfUsers();
 }
+
 
 let logOutBtn = document.querySelector('.log-out');
 logOutBtn.onclick = function () {
   // ... add changing status later
+  localStorage.clear();
   window.location.href = '../autorisation/login.html';
 }
 
-let localTimeElem = document.querySelector('.time-local');
-let localTime = new Date;
-localTimeElem.innerText = `${localTime.getHours()} : ${localTime.getMinutes()}`;
+window.onload = function(){
+  window.setInterval(function(){
+    let localTimeElem = document.querySelector('.time-local');
+    let localTime = new Date;
+    localTimeElem.innerText = localTime.toLocaleTimeString().slice(0, -3);
+  },1000);
+};
+
+
+
+
