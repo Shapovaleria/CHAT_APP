@@ -50,7 +50,6 @@ document.querySelector('#register').onclick = function (event) {
     registrationOfUser( "https://studentschat.herokuapp.com/users/register", 'POST', true)
     data.status = 'active';
     localStorage.setItem('userName', data.username);
-    console.log(data)
   }
 };
 
