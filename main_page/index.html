@@ -35,11 +35,10 @@
         <div class='on-offline-users'>
           <nav>
             <ul class='on-offline-list' id = 'online-list'>
-              <!-- <li class='user-name'>Harry Potter</li>
-              <li class='user-name'>Hermiona Granger</li>
+              <!-- <li class='user-name'>Hermiona Granger</li>
               <li class='user-name'>Ron Weasley</li>
               <li class='user-name'>Hagrid</li>
-              <li class='user-name'>Lord Voldemort</li> -->
+              <li class='user-name'>Lord Voldemort</li>  -->
             </ul>
           </nav>
         </div>
@@ -60,16 +59,13 @@
           <h4 class='chat-name'>Main chat</h4>
         </div>
         <div class='conversation'>
-          <p><span class='user-name'>Hagrid</span>: <span>You are a magician, Harry!</span></p>
-          <p><span class='user-name'>Harry Potter</span>: <span>wtf</span></p>
-          <p><span class='user-name'>Lord Voldemort</span>: <span>I'm going to kill you, Harry!</span></p>
-          <p><span class='user-name'>Harry Potter</span>: <span>WTF?!</span></p>
-          <p><span class='user-name'>Ron Weasley</span>: <span>lol</span></p>
+          <div class = 'message-box'>
+          </div>
         </div>
         <div class='write-a-message'>
-          <textarea></textarea>
+          <textarea class = 'text-of-message'></textarea>
           <div class='change-send-message'>
-            <button class='edit-message-btn'><b>B</b></button>
+            <button class='edit-message-btn' id = 'bold-btn'><b>B</b></button>
             <button class='edit-message-btn'><i>I</i></button>
             <button class='edit-message-btn'><u>U</u></button>
             <button class='send-btn'>Send message</button>
@@ -97,7 +93,8 @@
    </div>
   
   </footer>
-  <script src = 'script.js'></script>
+  <script src = 'script_users.js'></script>
+  <script src = 'script_message.js'></script>
 </body>
 
 </html>
