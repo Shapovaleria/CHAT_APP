@@ -50,7 +50,40 @@ document.querySelector('#register').onclick = function (event) {
     registrationOfUser( "https://studentschat.herokuapp.com/users/register", 'POST', true)
     data.status = 'active';
     localStorage.setItem('userName', data.username);
+    onStart()
   }
 };
+
+// getting time of login for counting time-online
+let newDate;
+let intervalId;
+if(localStorage['timer']) {
+  newDate = new Date(localStorage['timer']);
+  timer();
+  intervalId = setInterval(timer, 1000)
+}
+function onStart() {
+  newDate = Date.now();
+  timer();
+  if(!intervalId) {
+    intervalId = setInterval(timer, 1000)
+  }
+  localStorage.setItem('timer', new Date(newDate).toISOString());
+}
+
+function timer() {
+  let now = Date.now();
+  // let diff = Math.round((now - newDate)/1000)
+
+  // let h = Math.floor(diff/(60*60));
+  // diff = diff - (h*60*60);
+  // let m = Math.floor(diff/60);
+  // diff = diff - (m*60);
+  // let s = diff;
+
+  // counterOnline.innerText = `${h} hours, ${m} minutes, ${s} seconds`;
+}
+
+
 
   

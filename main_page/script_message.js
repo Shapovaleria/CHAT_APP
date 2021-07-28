@@ -1,4 +1,4 @@
-// --------- getting messages
+//  getting messages
 updateMessages();
 function updateMessages() {
   let xhrGetMessages = new XMLHttpRequest();
@@ -50,9 +50,47 @@ function updateMessages() {
 }
 
 
-// ------- writing message
+//  writing message + counting characters
 
 let textOfMessage = document.querySelector('.text-of-message');
+
+let characters = document.querySelector('#characters');
+characters.value = 0;
+let letters = document.querySelector('#letters');
+letters.value = 0;
+let whitespaces = document.querySelector('#whitespace');
+whitespaces.value = 0;
+let punctuation = document.querySelector('#punctuation-marks');
+punctuation.value = 0;
+
+textOfMessage.addEventListener('keydown', function (e) {
+
+  let lettersEng = '[a-zA-Z]';
+  let punctuationSymbols = /[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~]/;
+  if (e.key != 'Backspace') {
+    characters.value++;
+    characters.innerText = `${characters.value}`;
+   
+    if (e.key.match(lettersEng)) {
+      letters.value++;
+      letters.innerText = `${letters.value}`
+    }
+    else if (e.key == ' ') {
+      whitespaces.value++;
+      whitespaces.innerText = `${whitespaces.value}`
+    }
+    else if (e.key.match(punctuationSymbols)) {
+      punctuation.value++;
+      punctuation.innerText = `${punctuation.value}`
+    }
+  }
+  else {
+    characters.value--;
+    characters.innerText = `${characters.value}`;
+  }
+});
+
+// sending message
 
 function validationOfMessage() {
   if (textOfMessage.value.length == 0 || textOfMessage.value == ' ') {
@@ -66,12 +104,11 @@ function validationOfMessage() {
 
 document.querySelector('.send-btn').onclick = function () {
   let message = `${textOfMessage.value}`;
-  let now = new Date().toISOString();
 
   let data = {
     'username': localStorage.userName,
     'message': message,
-    'datetime': now,
+    'datetime': new Date().toISOString(),
   }
   
   function sendMessage(method, url) {
@@ -81,6 +118,7 @@ document.querySelector('.send-btn').onclick = function () {
   
     xhr.onload = function () {
       if (this.readyState == 4 && this.status == 200) {
+        textOfMessage.value.innerHTML = '';
         return JSON.parse(this.response);
       }
       else if (this.status == 403) {
@@ -91,12 +129,15 @@ document.querySelector('.send-btn').onclick = function () {
       }
     }
     xhr.send(JSON.stringify(data));
+   
   }
 
   if (validationOfMessage()) {
-    sendMessage('POST', 'https://studentschat.herokuapp.com/messages');
+    sendMessage('POST', 'https://studentschat.herokuapp.com/messages')
+    console.log(message);
   }
 }
 
-// ------editing message
+// editing message
+
 

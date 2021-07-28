@@ -1,5 +1,6 @@
 document.querySelector('.user-nickname').innerText = localStorage.userName;
 
+// get users
 let xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://studentschat.herokuapp.com/users/', true);
 xhr.send();
@@ -12,6 +13,8 @@ xhr.onload = function () {
     getUsers(result);
   }
 }
+
+// display users
 
 let listOnline = document.querySelector('#online-list');
 let listOffline = document.querySelector('#offline-list')
@@ -26,7 +29,7 @@ function getUsers(data) {
   for (let i = 0; i < data.length; i++) {
     if (data[i].username == localStorage.userName) {
      let currentUser = data[i];
-     console.log(currentUser)
+     currentUser.status = 'active';
     }
     if (data[i].status == 'active') {
       let li = document.createElement('li');
@@ -49,20 +52,43 @@ function getUsers(data) {
   let onOfflineDiv = document.querySelector('.on-offline-users');
 
   function addScrollOfUsers() {
-    if(amountOfOnline.value >= 8 || amountOfOffline.value >= 5) {
+    if(amountOfOnline.value >= 9 || amountOfOffline.value >= 5) {
       onOfflineDiv.classList.add('add-scroll');
     } 
   }
   addScrollOfUsers();
 }
 
+//  log out
 
 let logOutBtn = document.querySelector('.log-out');
+
+let data = {
+  'username': localStorage['userName'],
+};
+
 logOutBtn.onclick = function () {
-  // ... add changing status later
+  let xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://studentschat.herokuapp.com/users/logout', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+
+  xhr.onload = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      window.location.href = '../autorisation/login.html';
+      return JSON.parse(this.response);
+    }
+    else if (this.status != 200) {
+      alert ('something went wrong' );
+    }
+  }
+  xhr.send(JSON.stringify(data));
   localStorage.clear();
-  window.location.href = '../autorisation/login.html';
 }
+  
+ 
+
+
+// ---------local time and online-timer
 
 window.onload = function(){
   window.setInterval(function(){
@@ -71,6 +97,43 @@ window.onload = function(){
     localTimeElem.innerText = localTime.toLocaleTimeString().slice(0, -3);
   },1000);
 };
+
+
+let counterOnline = document.querySelector('.time-online');
+
+let newDate;
+let intervalId;
+if(localStorage['timer']) {
+  newDate = new Date(localStorage['timer']);
+  timer();
+  intervalId = setInterval(timer, 1000)
+}
+function onStart() {
+  newDate = Date.now();
+  timer();
+  if(!intervalId) {
+    intervalId = setInterval(timer, 1000)
+  }
+  localStorage.setItem('timer', new Date(newDate).toISOString());
+}
+
+function timer() {
+  let now = Date.now();
+  let diff = Math.round((now - newDate)/1000)
+
+  let h = Math.floor(diff/(60*60));
+  diff = diff - (h*60*60);
+  let m = Math.floor(diff/60);
+  diff = diff - (m*60);
+  let s = diff;
+
+  counterOnline.innerText = `${h} hours, ${m} minutes, ${s} seconds`;
+}
+
+
+
+
+
 
 
 

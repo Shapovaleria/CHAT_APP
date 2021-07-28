@@ -74,6 +74,7 @@ h1 {
   text-decoration: none;
   display: inline-block;
   color: #000;
+  cursor: pointer;
 }
 
 .log-out:hover {
@@ -95,7 +96,7 @@ h1 {
   text-align: center;
 }
 .user-name {
-  font-weight: 600;
+  /* font-weight: 600; */
   cursor: pointer;
   font-style: italic;
 }
