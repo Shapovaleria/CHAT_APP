@@ -7,12 +7,12 @@ body {
   background-size: cover; 
   max-width: 1200px;
   min-height: 100%;
-  margin: 8px auto;
+  margin: 5px auto;
 }
 
 main {
   width: 90%;
-  margin: 10px auto;
+  margin: 0 auto;
   border-left: 2px solid #000;
   border-right: 2px solid #000;
   display: flex;
@@ -24,54 +24,58 @@ main {
 header {
   display: flex;
   width: 95%;
-  padding: 5px 2.5%;
-  /* border-bottom: 1px solid #000; */
+  padding: 0 2.5% ;
 }
 
 h1 {
   display: inline-block;
   position: relative;
-  bottom: 30%;
-  left: 12%;
-  font-family: 'Zen Tokyo Zoo', cursive;
+  bottom: 25%;
+  left: 5%;
+  font-family: 'Zen Tokyo Zoo';
   font-weight: 300;
   font-size: 50px;
   margin: 10px 0;
 }
 
-
+.header-logo {
+  width: 65%;
+  text-align: right;
+}
 .logo-img {
   width: 12%;
-  margin:10px 30px 0 20px;
-}
- .header-info {
-  width: 20%;
-  padding: 2%;
+  margin:0 30px 0 20px;
 }
 
-.header-logo {
-  width: 75%;
-  text-align: center;
+.test {
+  display: inline-block;
+  width: 35%;
+  text-align: left;
+  position: relative;
+  bottom: 15px;
+}
+ .header-info {
+  width: 30%;
+  padding: 2% 0 0 0;
+  text-align: right;
 }
 
 .user-default-img {
-  width: 50px;
-  margin: -5% 0 5px 30%;
+  width: 45px;
   opacity: 70%;
+  margin-right: 5%;
 }
 .user-nickname {
   display: block;
-  margin-left: 28%;
 }
 .log-out {
   background-color: #ffdcc5;
   border: none;
   padding: 5px;
   position: relative;
-  left: 28%;
   top: 11%;
+  right: 3%;
   font-size: 12px;
-  text-decoration: none;
   display: inline-block;
   color: #000;
   cursor: pointer;
@@ -85,7 +89,7 @@ h1 {
 
 .chat-elements {
   display: flex;
-  padding: 10px 2.5%;
+  padding: 0 2.5%;
 }
 
 .online-block {
@@ -96,7 +100,6 @@ h1 {
   text-align: center;
 }
 .user-name {
-  /* font-weight: 600; */
   cursor: pointer;
   font-style: italic;
 }
@@ -149,6 +152,21 @@ h1 {
   background-color: #f5a843;
 }
 
+.add-scroll-small {
+  overflow-y: scroll;
+  height: 145px;
+  cursor: pointer;
+}
+
+.add-scroll-small::-webkit-scrollbar {
+  width: 7px;
+  background-color: #fff;
+}
+.add-scroll-small::-webkit-scrollbar-thumb {
+  background-color: #f5a843;
+}
+
+
  /* -------------------------------main chat-------------- */
 .main-chat {
   width: 70%;
@@ -170,7 +188,7 @@ h1 {
 .conversation {
   min-height: 250px;
   padding: 1%;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .conversation p {
@@ -180,6 +198,7 @@ h1 {
 .message-box {
   display: flex;
   flex-direction: column;
+  /* overflow-x:hidden ; */
 }
 
 .user-message {
@@ -234,10 +253,12 @@ h1 {
 }
 
 .message-info {
-  font-size: 14px;
+  font-size: 13px;
 }
+
 .message-info ul {
   list-style-type: none;
+  margin: 5px 0;
 }
 
 .edit-message-btn {
@@ -271,7 +292,7 @@ h1 {
 footer {
   flex: 0 0 auto;
   width: 100%;
- padding: 10px 5% 0 5%;
+ padding: 15px 5% 0 5%;
 }
 .footer-info {
   width: 40%;
@@ -279,7 +300,7 @@ footer {
 }
 
 .footer-info p {
-  margin-top: -5px;
+  margin: 0;
 }
 .footer-info a {
   color: #000;
@@ -293,4 +314,7 @@ footer {
   display: inline-block;
   width: 50%;
   text-align: right;
+}
+.made-by p {
+  margin: 0;
 }

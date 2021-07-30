@@ -45,7 +45,7 @@ function updateMessages() {
  
   function addScrollOfMessages() {
     messageBox.classList.add('add-scroll');
-    // messageBox.lastChild.scrollIntoView();
+    messageBox.lastChild.scrollIntoView();
   }
 }
 

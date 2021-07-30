@@ -49,12 +49,15 @@ function getUsers(data) {
   amountOfOnline.innerText = `${amountOfOnline.value}`
   amountOfOffline.innerText = `${amountOfOffline.value}`
 
-  let onOfflineDiv = document.querySelector('.on-offline-users');
+  // let onOfflineDiv = document.querySelector('.on-offline-users');
 
   function addScrollOfUsers() {
-    if(amountOfOnline.value >= 9 || amountOfOffline.value >= 5) {
-      onOfflineDiv.classList.add('add-scroll');
+    if (amountOfOnline.value >= 9 ) {
+      listOnline.classList.add('add-scroll');
     } 
+    if (amountOfOffline.value > 6) {
+      listOffline.classList.add('add-scroll-small');
+    }
   }
   addScrollOfUsers();
 }
