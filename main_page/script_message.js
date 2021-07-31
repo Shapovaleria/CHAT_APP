@@ -63,10 +63,10 @@ whitespaces.value = 0;
 let punctuation = document.querySelector('#punctuation-marks');
 punctuation.value = 0;
 
-textOfMessage.addEventListener('keydown', function (e) {
-
+textOfMessage.addEventListener('keyup', function (e) {
   let lettersEng = '[a-zA-Z]';
   let punctuationSymbols = /[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~]/;
+
   if (e.key != 'Backspace') {
     characters.value++;
     characters.innerText = `${characters.value}`;
@@ -85,15 +85,23 @@ textOfMessage.addEventListener('keydown', function (e) {
     }
   }
   else {
-    characters.value--;
-    characters.innerText = `${characters.value}`;
+    if (characters.value < 1 || textOfMessage.textContent.length == 0) {
+      characters.innerText = `${characters.value = 0}`;
+      letters.innerText = `${letters.value = 0}`;
+      whitespaces.innerText = `${whitespaces.value = 0}`;
+      punctuation.innerText = `${punctuation.value = 0}`;
+    }
+    else {
+      characters.value--;
+      characters.innerText = `${characters.value}`;
+    }
   }
 });
 
 // sending message
 
 function validationOfMessage() {
-  if (textOfMessage.value.length == 0 || textOfMessage.value == ' ') {
+  if (textOfMessage.textContent.length == 0 || textOfMessage.textContent == ' ') {
     alert('You are trying to send an empty message. Write something');
     return false;
   }
@@ -103,7 +111,7 @@ function validationOfMessage() {
 }
 
 document.querySelector('.send-btn').onclick = function () {
-  let message = `${textOfMessage.value}`;
+  let message = `${textOfMessage.innerHTML}`;
 
   let data = {
     'username': localStorage.userName,
@@ -118,7 +126,6 @@ document.querySelector('.send-btn').onclick = function () {
   
     xhr.onload = function () {
       if (this.readyState == 4 && this.status == 200) {
-        textOfMessage.value.innerHTML = '';
         return JSON.parse(this.response);
       }
       else if (this.status == 403) {
@@ -133,11 +140,65 @@ document.querySelector('.send-btn').onclick = function () {
   }
 
   if (validationOfMessage()) {
-    sendMessage('POST', 'https://studentschat.herokuapp.com/messages')
-    console.log(message);
+    // sendMessage('POST', 'https://studentschat.herokuapp.com/messages')
+    textOfMessage.innerHTML = '';
+    characters.innerText = `${characters.value = 0}`;
+    letters.innerText = `${letters.value = 0}`;
+    whitespaces.innerText = `${whitespaces.value = 0}`;
+    punctuation.innerText = `${punctuation.value = 0}`;
   }
 }
 
 // editing message
+
+let bold = document.querySelector('#bold-btn');
+let italic = document.querySelector('#italic-btn');
+let underline = document.querySelector('#underline-btn');
+let noEffects = document.querySelector('#no-effects')
+
+bold.addEventListener('click', makeBold);
+italic.addEventListener('click', makeItalic);
+underline.addEventListener('click', makeUnderlined);
+noEffects.addEventListener('click', cancelEffects)
+
+textOfMessage.addEventListener('mouseup', selectText)
+
+function selectText() {
+  if(window.getSelection().toString().length){
+    let exactText = window.getSelection().toString();
+    return exactText 
+ }
+}
+
+function makeBold() {
+  if (selectText()) {
+    textOfMessage.innerHTML = ` ${textOfMessage.innerHTML.replace(selectText(), ` <b> ${selectText()} </b> `)}`;
+  }
+  else {
+    textOfMessage.innerHTML = `<b> ${textOfMessage.innerText} </b> `
+  }
+}
+
+function makeItalic() {
+  if (selectText()) {
+    textOfMessage.innerHTML = ` ${textOfMessage.innerHTML.replace(selectText(), ` <i> ${selectText()} </i> `)}`;
+  }
+  else {
+    textOfMessage.innerHTML = `<i> ${textOfMessage.innerText} </i> `
+  }
+}
+
+function makeUnderlined() {
+  if (selectText()) {
+    textOfMessage.innerHTML = ` ${textOfMessage.innerHTML.replace(selectText(), ` <u> ${selectText()} </u> `)}`;
+  }
+  else {
+    textOfMessage.innerHTML = `<u> ${textOfMessage.innerText} </u> `
+  }
+}
+
+function cancelEffects() {
+    textOfMessage.innerHTML = `${textOfMessage.textContent}`;
+}
 
 

@@ -8,7 +8,7 @@
   <title>Chat App</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,300;0,600;1,300;1,400&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,300;0,600;0,800;1,300;1,400&display=swap"
     rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -19,7 +19,7 @@
   <main>
     <header>
       <div class='header-logo'>
-        <div class = 'test'>
+        <div class = 'time'>
           <span>Local time:</span>
           <span class='time-local'></span>
         </div>
@@ -38,21 +38,13 @@
         <span class='online'>Online: <span id = 'amount-of-online'> </span></span>
         <div class='on-offline-users'>
           <nav>
-            <ul class='on-offline-list' id = 'online-list'>
-              <!-- <li class='user-name'>Hermiona Granger</li>
-              <li class='user-name'>Ron Weasley</li>
-              <li class='user-name'>Hagrid</li>
-              <li class='user-name'>Lord Voldemort</li>  -->
-            </ul>
+            <ul class='on-offline-list' id = 'online-list'></ul>
           </nav>
         </div>
         <span class='offline'>Offline: <span span id = 'amount-of-offline'> </span></span>
         <div class='on-offline-users'>
           <nav>
-            <ul class='on-offline-list' id = 'offline-list'>
-              <!-- <li class='user-name'>Albus Dumbledor</li>
-              <li class='user-name'>Fred Weasley</li> -->
-            </ul>
+            <ul class='on-offline-list' id = 'offline-list'></ul>
           </nav>
 
         </div>
@@ -67,11 +59,12 @@
           </div>
         </div>
         <div class='write-a-message'>
-          <textarea class = 'text-of-message'></textarea>
+          <div class = 'text-of-message add-scroll' contenteditable="true"></div>
           <div class='change-send-message'>
-            <button class='edit-message-btn' id = 'bold-btn'><b>B</b></button>
-            <button class='edit-message-btn'><i>I</i></button>
-            <button class='edit-message-btn'><u>U</u></button>
+            <button class='edit-message-btn' id = 'no-effects' title="cancel chages">	&#8634;</button>
+            <button class='edit-message-btn' id = 'bold-btn' title="make it bold"><b>B</b></button>
+            <button class='edit-message-btn' id = 'italic-btn' title="make it italic"><i>I</i></button>
+            <button class='edit-message-btn' id = 'underline-btn' title="make it underlined"><u>U</u></button>
             <button class='send-btn'>Send message</button>
           </div>
           <div class='message-info'>

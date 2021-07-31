@@ -47,7 +47,7 @@ h1 {
   margin:0 30px 0 20px;
 }
 
-.test {
+.time {
   display: inline-block;
   width: 35%;
   text-align: left;
@@ -239,12 +239,25 @@ h1 {
   border-top: 1px solid #000;
 }
 
-.write-a-message textarea {
+/* .write-a-message textarea {
   width: 95%;
   min-height: 70px;
   resize: none;
   padding: 5px 10px;
   font-size: 16px;
+} */
+
+.text-of-message {
+  width: 95%;
+  height: 70px;
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: #fff;
+  overflow-y: scroll;
+}
+
+div[contentEditable] {
+  outline: none;
 }
 
 .change-send-message {
@@ -273,13 +286,21 @@ h1 {
   background-color: #f5a843;
 }
 
+#no-effects {
+  background-color: #d4d0cd;
+}
+
+#no-effects:hover {
+  background-color: #b3b2b2;
+}
+
 .send-btn {
   cursor: pointer;
   border: none;
   background-color: #fdbc91;
   padding: 10px 15px;
   font-size: 15px;
-  margin-left: 40%;
+  margin-left: 35%;
 }
 
 .send-btn:hover {
