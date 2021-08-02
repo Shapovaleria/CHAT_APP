@@ -2,7 +2,7 @@
 updateMessages();
 function updateMessages() {
   let xhrGetMessages = new XMLHttpRequest();
-  xhrGetMessages.open('GET', 'https://studentschat.herokuapp.com/messages', true);
+  xhrGetMessages.open('GET', `${SERVER_NAME}/messages`, true);
   xhrGetMessages.send();
   
   xhrGetMessages.onload = function () {
@@ -140,7 +140,7 @@ document.querySelector('.send-btn').onclick = function () {
   }
 
   if (validationOfMessage()) {
-    // sendMessage('POST', 'https://studentschat.herokuapp.com/messages')
+    sendMessage('POST', `${SERVER_NAME}/messages`)
     textOfMessage.innerHTML = '';
     characters.innerText = `${characters.value = 0}`;
     letters.innerText = `${letters.value = 0}`;

@@ -1,3 +1,5 @@
+const SERVER_NAME = 'https://studentschat.herokuapp.com';
+
 function validation(nickname, password, repeatPassword) {
   if (nickname.length < 4) {
    alert('The name should be not less than 4 symbols');
@@ -47,7 +49,7 @@ document.querySelector('#register').onclick = function (event) {
   }
   
   if(validation(nickname, password, repeatPassword)) {
-    registrationOfUser( "https://studentschat.herokuapp.com/users/register", 'POST', true)
+    registrationOfUser( `${SERVER_NAME}/users/register`, 'POST', true)
     data.status = 'active';
     localStorage.setItem('userName', data.username);
     onStart()

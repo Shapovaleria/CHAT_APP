@@ -1,8 +1,10 @@
+const SERVER_NAME = 'https://studentschat.herokuapp.com';
+
 document.querySelector('.user-nickname').innerText = localStorage.userName;
 
 // get users
 let xhr = new XMLHttpRequest();
-xhr.open('GET', 'https://studentschat.herokuapp.com/users/', true);
+xhr.open('GET', `${SERVER_NAME}/users/`, true);
 xhr.send();
 
 xhr.onload = function () {
@@ -72,7 +74,7 @@ let data = {
 
 logOutBtn.onclick = function () {
   let xhr = new XMLHttpRequest();
-  xhr.open('POST', 'https://studentschat.herokuapp.com/users/logout', true);
+  xhr.open('POST', `${SERVER_NAME}/users/logout`, true);
   xhr.setRequestHeader('Content-Type', 'application/json');
 
   xhr.onload = function () {

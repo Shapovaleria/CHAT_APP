@@ -1,3 +1,5 @@
+const SERVER_NAME = 'https://studentschat.herokuapp.com';
+
 document.querySelector('.authorize-submit').onclick = function (event) {
   event.preventDefault();
 
@@ -32,7 +34,7 @@ document.querySelector('.authorize-submit').onclick = function (event) {
     document.querySelector('.authorize-error').style.display = 'inherit';
   }
    
-  loginOfUser('GET', 'https://studentschat.herokuapp.com/users/');
+  loginOfUser('GET', `${SERVER_NAME}/users/`);
 }
 
 // getting time of login for counting time-online
