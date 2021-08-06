@@ -27,8 +27,10 @@
         <h1>Owl post chat</h1>
       </div>
       <div class='header-info'>
-        <img src="img/user.png" alt="user photo" class='user-default-img'>
-        <span class='user-nickname user-name'>Dobbie</span>
+        <!-- <img src="img/user.png" alt="user photo" class='user-default-img'> -->
+        <img alt="user photo" class='user-default-img'>
+
+        <span class='user-nickname'></span>
         <button class='log-out'>Log out</button>
       </div>
     </header>
@@ -37,22 +39,17 @@
       <div class='online-block'>
         <span class='online'>Online: <span id = 'amount-of-online'> </span></span>
         <div class='on-offline-users'>
-          <nav>
             <ul class='on-offline-list' id = 'online-list'></ul>
-          </nav>
         </div>
         <span class='offline'>Offline: <span span id = 'amount-of-offline'> </span></span>
         <div class='on-offline-users'>
-          <nav>
             <ul class='on-offline-list' id = 'offline-list'></ul>
-          </nav>
-
         </div>
       </div>
 
       <div class='main-chat'>
         <div class='change-chat'>
-          <h4 class='chat-name'>Main chat</h4>
+          <h4 id = 'main-chat'>Main chat</h4>
         </div>
         <div class='conversation'>
           <div class = 'message-box'>

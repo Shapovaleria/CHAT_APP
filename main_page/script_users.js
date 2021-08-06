@@ -1,6 +1,10 @@
 const SERVER_NAME = 'https://studentschat.herokuapp.com';
+const AVATARS = ['1', '01','2', '02', '3', '03','4', '04', '5', '05', '6', '06', '07', '08', '09', '10', '11', '12', 'w1', 'w2', 'w3', 'w4', 'w5', 'w6'];
 
 document.querySelector('.user-nickname').innerText = localStorage.userName;
+let userAvatar = document.querySelector('.user-default-img');
+userAvatarNum = getRandomAvatar();
+userAvatar.src = `../assets/${userAvatarNum}.svg`;
 
 // get users
 let xhr = new XMLHttpRequest();
@@ -26,17 +30,33 @@ amountOfOnline.value = 0;
 let amountOfOffline = document.querySelector('#amount-of-offline');
 amountOfOffline.value = 0;
 
+function getRandomAvatar() {
+  let num = Math.floor(Math.random() * AVATARS.length);
+  return AVATARS[num];
+}
 
 function getUsers(data) {
   for (let i = 0; i < data.length; i++) {
     if (data[i].username == localStorage.userName) {
      let currentUser = data[i];
+     currentUser.avatarId = `${userAvatarNum}`
      currentUser.status = 'active';
     }
     if (data[i].status == 'active') {
       let li = document.createElement('li');
       li.innerHTML = `${data[i].username}`;
       li.className = 'user-name';
+      let avatar = document.createElement('img');
+      if (data[i].avatarId) {
+        avatar.src = `../assets/${data[i].avatarId}.svg`;
+        avatar.className = 'avatar';
+        li.prepend(avatar)
+      }
+      else {
+        avatar.src = `../assets/${getRandomAvatar()}.svg`
+        avatar.className = 'avatar';
+        li.prepend(avatar)
+      }
       listOnline.append(li);
       amountOfOnline.value++;
     }
@@ -44,17 +64,29 @@ function getUsers(data) {
       let li = document.createElement('li');
       li.innerHTML = `${data[i].username}`;
       li.className = 'user-name';
+      let avatar = document.createElement('img');
+      if (data[i].avatarId) {
+        avatar.src = `../assets/${data[i].avatarId}.svg`;
+        avatar.className = 'avatar';
+        li.prepend(avatar)
+      }
+      else {
+        avatar.src = `../assets/${getRandomAvatar()}.svg`
+        avatar.className = 'avatar';
+        li.prepend(avatar)
+      }
       listOffline.append(li);
       amountOfOffline.value++;
     }
   }
+
   amountOfOnline.innerText = `${amountOfOnline.value}`
   amountOfOffline.innerText = `${amountOfOffline.value}`
 
   // let onOfflineDiv = document.querySelector('.on-offline-users');
 
   function addScrollOfUsers() {
-    if (amountOfOnline.value >= 9 ) {
+    if (amountOfOnline.value >= 7 ) {
       listOnline.classList.add('add-scroll');
     } 
     if (amountOfOffline.value > 6) {

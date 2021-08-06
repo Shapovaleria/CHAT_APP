@@ -11,7 +11,7 @@ body {
 }
 
 main {
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
   border-left: 2px solid #000;
   border-right: 2px solid #000;
@@ -48,11 +48,11 @@ h1 {
 }
 
 .time {
-  display: inline-block;
+  display: block;
   width: 35%;
   text-align: left;
   position: relative;
-  bottom: 15px;
+  top: 90px;
 }
  .header-info {
   width: 30%;
@@ -62,11 +62,14 @@ h1 {
 
 .user-default-img {
   width: 45px;
-  opacity: 70%;
+  opacity: 90%;
   margin-right: 5%;
+  border-radius: 15px;
 }
 .user-nickname {
   display: block;
+  cursor: pointer;
+  font-style: italic;
 }
 .log-out {
   background-color: #ffdcc5;
@@ -111,7 +114,7 @@ h1 {
 }
 
 .on-offline-list {
-  padding-left: 25px;
+  padding-left: 10px;
   overflow-x: auto;
 }
 .on-offline-list li{
@@ -137,6 +140,14 @@ h1 {
 
 .offline {
   border-bottom: 2px solid #ca0303;
+}
+
+.avatar {
+  width: 35px;
+  margin-right: 5px;
+  position: relative;
+  top: 10px;
+  border-radius: 15px;
 }
 
 .add-scroll {
@@ -172,17 +183,24 @@ h1 {
   width: 70%;
   padding:0 1%;
 }
-
-.chat-name {
-  display: inline-block;
+#main-chat {
   margin: 5px 0 5px 15px;
-  background-color: #f8d76b;
   padding: 5px 10px;
+  background-color: #f8bf75;
+  display: inline-block;
   cursor: pointer;
 }
 
-.chat-name:hover {
-  background-color: #d1b557;
+.chat-name {
+  display: inline-block;
+  margin: 5px;
+  background-color:#ffdcc5;
+  padding: 3px;
+  cursor: pointer;
+}
+
+#main-chat:hover {
+  background-color: #f5a843;
 }
 
 .conversation {
@@ -239,14 +257,6 @@ h1 {
   border-top: 1px solid #000;
 }
 
-/* .write-a-message textarea {
-  width: 95%;
-  min-height: 70px;
-  resize: none;
-  padding: 5px 10px;
-  font-size: 16px;
-} */
-
 .text-of-message {
   width: 95%;
   height: 70px;
@@ -277,7 +287,7 @@ div[contentEditable] {
 .edit-message-btn {
   cursor: pointer;
   border: none;
-  background-color:#fdbc91 ;
+  background-color:#f8bf75 ;
   padding: 5px 10px;
   margin-right: 3px;
 }
@@ -297,7 +307,7 @@ div[contentEditable] {
 .send-btn {
   cursor: pointer;
   border: none;
-  background-color: #fdbc91;
+  background-color: #f8bf75;
   padding: 10px 15px;
   font-size: 15px;
   margin-left: 35%;
@@ -313,10 +323,10 @@ div[contentEditable] {
 footer {
   flex: 0 0 auto;
   width: 100%;
- padding: 15px 5% 0 5%;
+ padding: 5px 5% 0 5%;
 }
 .footer-info {
-  width: 40%;
+  width: 45%;
   display: inline-block;
 }
 
@@ -333,9 +343,30 @@ footer {
 
 .made-by {
   display: inline-block;
-  width: 50%;
+  width: 45%;
   text-align: right;
 }
 .made-by p {
   margin: 0;
 }
+
+/* ------------------new chat */
+/* .hidden {
+  display: none;
+}
+
+.close-chat-btn {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #f8bf75;
+}
+
+.close-chat-btn:hover {
+  background-color: #f5a843;
+}
+
+.new-chat {
+  display: flex;
+  flex-direction: column;
+} */

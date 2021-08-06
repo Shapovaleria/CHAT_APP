@@ -1,5 +1,8 @@
 //  getting messages
-updateMessages();
+updateMessages()
+
+let messageBox =  document.querySelector('.message-box');
+
 function updateMessages() {
   let xhrGetMessages = new XMLHttpRequest();
   xhrGetMessages.open('GET', `${SERVER_NAME}/messages`, true);
@@ -13,8 +16,7 @@ function updateMessages() {
       showMessages(result);
     }
   }
-  let messageBox =  document.querySelector('.message-box')
-  
+
   function showMessages(data) {
     for (let i = 0; i < data.length ; i++) {
       let messageofUser = document.createElement('div');
@@ -200,5 +202,4 @@ function makeUnderlined() {
 function cancelEffects() {
     textOfMessage.innerHTML = `${textOfMessage.textContent}`;
 }
-
 
