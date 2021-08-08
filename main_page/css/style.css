@@ -115,7 +115,6 @@ h1 {
 
 .on-offline-list {
   padding-left: 10px;
-  overflow-x: auto;
 }
 .on-offline-list li{
   margin: 5px ;
@@ -349,24 +348,3 @@ footer {
 .made-by p {
   margin: 0;
 }
-
-/* ------------------new chat */
-/* .hidden {
-  display: none;
-}
-
-.close-chat-btn {
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: #f8bf75;
-}
-
-.close-chat-btn:hover {
-  background-color: #f5a843;
-}
-
-.new-chat {
-  display: flex;
-  flex-direction: column;
-} */

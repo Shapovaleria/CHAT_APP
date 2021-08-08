@@ -1,5 +1,5 @@
 //  getting messages
-updateMessages()
+updateMessages();
 
 let messageBox =  document.querySelector('.message-box');
 
@@ -12,43 +12,43 @@ function updateMessages() {
     if (xhrGetMessages.status != 200) {
       alert(`oops, its a mistake here ${xhrGetMessages.status}: ${xhrGetMessages.statusText}`);
     } else {
-      let result = JSON.parse(xhrGetMessages.responseText)
-      showMessages(result);
+      let result = JSON.parse(xhrGetMessages.responseText);
+        showMessages(result);
     }
+  }
+}
+
+function showMessages(data) {
+  for (let i = 0; i < data.length ; i++) {
+    let messageofUser = document.createElement('div');
+    messageofUser.className = 'user-message'
+
+    let spanUsername = document.createElement('span');
+    spanUsername.className= 'message-username';
+    spanUsername.innerHTML = `${data[i].username} `;
+    messageofUser.append(spanUsername);
+
+    let divMessage = document.createElement('div');
+    divMessage.className = 'message-text';
+    divMessage.innerHTML = `${data[i].message}`;
+    messageofUser.append( divMessage);
+
+    let divTime = document.createElement('div');
+    divTime.className = 'message-time';
+    divTime.innerHTML = `${data[i].datetime}`;
+    messageofUser.append( divTime);
+
+    messageBox.append(messageofUser);
   }
 
-  function showMessages(data) {
-    for (let i = 0; i < data.length ; i++) {
-      let messageofUser = document.createElement('div');
-      messageofUser.className = 'user-message'
-  
-      let spanUsername = document.createElement('span');
-      spanUsername.className= 'message-username';
-      spanUsername.innerHTML = `${data[i].username} `;
-      messageofUser.append(spanUsername);
-  
-      let divMessage = document.createElement('div');
-      divMessage.className = 'message-text';
-      divMessage.innerHTML = `${data[i].message}`;
-      messageofUser.append( divMessage);
-  
-      let divTime = document.createElement('div');
-      divTime.className = 'message-time';
-      divTime.innerHTML = `${data[i].datetime}`;
-      messageofUser.append( divTime);
-  
-      messageBox.append(messageofUser);
-    }
-  
-    if (data.length >= 5) {
-      addScrollOfMessages();
-    }
+  if (data.length >= 5) {
+    addScrollOfMessages();
   }
- 
-  function addScrollOfMessages() {
-    messageBox.classList.add('add-scroll');
-    messageBox.lastChild.scrollIntoView();
-  }
+}
+
+function addScrollOfMessages() {
+  messageBox.classList.add('add-scroll');
+  messageBox.lastChild.scrollIntoView();
 }
 
 
@@ -142,7 +142,7 @@ document.querySelector('.send-btn').onclick = function () {
   }
 
   if (validationOfMessage()) {
-    sendMessage('POST', `${SERVER_NAME}/messages`)
+    sendMessage('POST', `${SERVER_NAME}/messages`);
     textOfMessage.innerHTML = '';
     characters.innerText = `${characters.value = 0}`;
     letters.innerText = `${letters.value = 0}`;

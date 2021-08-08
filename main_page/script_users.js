@@ -1,28 +1,32 @@
 const SERVER_NAME = 'https://studentschat.herokuapp.com';
-const AVATARS = ['1', '01','2', '02', '3', '03','4', '04', '5', '05', '6', '06', '07', '08', '09', '10', '11', '12', 'w1', 'w2', 'w3', 'w4', 'w5', 'w6'];
+const AVATARS = ['1', '01', '2', '02', '3', '03', '4', '04', '5', '05', '6', '06', '07', '08', '09', '10', '11', '12', 'w1', 'w2', 'w3', 'w4', 'w5', 'w6'];
 
 document.querySelector('.user-nickname').innerText = localStorage.userName;
 let userAvatar = document.querySelector('.user-default-img');
 userAvatarNum = getRandomAvatar();
 userAvatar.src = `../assets/${userAvatarNum}.svg`;
 
-// get users
-let xhr = new XMLHttpRequest();
-xhr.open('GET', `${SERVER_NAME}/users/`, true);
-xhr.send();
+updateUsers();
 
-xhr.onload = function () {
-  if (xhr.status != 200) {
-    alert(`oops, its a mistake here ${xhr.status}: ${xhr.statusText}`);
-  } else {
-    let result = JSON.parse(xhr.responseText)
-    getUsers(result);
+function updateUsers() {
+  // get users
+  let xhr = new XMLHttpRequest();
+  xhr.open('GET', `${SERVER_NAME}/users/`, true);
+  xhr.send();
+
+  xhr.onload = function () {
+    if (xhr.status != 200) {
+      alert(`oops, its a mistake here ${xhr.status}: ${xhr.statusText}`);
+    } else {
+      let result = JSON.parse(xhr.responseText)
+      showUsers(result);
+    }
   }
 }
 
-// display users
+ // display users
 
-let listOnline = document.querySelector('#online-list');
+ let listOnline = document.querySelector('#online-list');
 let listOffline = document.querySelector('#offline-list')
 
 let amountOfOnline = document.querySelector('#amount-of-online');
@@ -35,12 +39,12 @@ function getRandomAvatar() {
   return AVATARS[num];
 }
 
-function getUsers(data) {
+ function showUsers(data) {
   for (let i = 0; i < data.length; i++) {
     if (data[i].username == localStorage.userName) {
-     let currentUser = data[i];
-     currentUser.avatarId = `${userAvatarNum}`
-     currentUser.status = 'active';
+      let currentUser = data[i];
+      currentUser.avatarId = `${userAvatarNum}`
+      currentUser.status = 'active';
     }
     if (data[i].status == 'active') {
       let li = document.createElement('li');
@@ -83,12 +87,10 @@ function getUsers(data) {
   amountOfOnline.innerText = `${amountOfOnline.value}`
   amountOfOffline.innerText = `${amountOfOffline.value}`
 
-  // let onOfflineDiv = document.querySelector('.on-offline-users');
-
   function addScrollOfUsers() {
-    if (amountOfOnline.value >= 7 ) {
+    if (amountOfOnline.value >= 7) {
       listOnline.classList.add('add-scroll');
-    } 
+    }
     if (amountOfOffline.value > 6) {
       listOffline.classList.add('add-scroll-small');
     }
@@ -115,24 +117,21 @@ logOutBtn.onclick = function () {
       return JSON.parse(this.response);
     }
     else if (this.status != 200) {
-      alert ('something went wrong' );
+      alert('something went wrong');
     }
   }
   xhr.send(JSON.stringify(data));
   localStorage.clear();
 }
-  
- 
 
+// local time and online-timer
 
-// ---------local time and online-timer
-
-window.onload = function(){
-  window.setInterval(function(){
+window.onload = function () {
+  window.setInterval(function () {
     let localTimeElem = document.querySelector('.time-local');
     let localTime = new Date;
     localTimeElem.innerText = localTime.toLocaleTimeString().slice(0, -3);
-  },1000);
+  }, 1000);
 };
 
 
@@ -140,7 +139,7 @@ let counterOnline = document.querySelector('.time-online');
 
 let newDate;
 let intervalId;
-if(localStorage['timer']) {
+if (localStorage['timer']) {
   newDate = new Date(localStorage['timer']);
   timer();
   intervalId = setInterval(timer, 1000)
@@ -148,7 +147,7 @@ if(localStorage['timer']) {
 function onStart() {
   newDate = Date.now();
   timer();
-  if(!intervalId) {
+  if (!intervalId) {
     intervalId = setInterval(timer, 1000)
   }
   localStorage.setItem('timer', new Date(newDate).toISOString());
@@ -156,12 +155,12 @@ function onStart() {
 
 function timer() {
   let now = Date.now();
-  let diff = Math.round((now - newDate)/1000)
+  let diff = Math.round((now - newDate) / 1000)
 
-  let h = Math.floor(diff/(60*60));
-  diff = diff - (h*60*60);
-  let m = Math.floor(diff/60);
-  diff = diff - (m*60);
+  let h = Math.floor(diff / (60 * 60));
+  diff = diff - (h * 60 * 60);
+  let m = Math.floor(diff / 60);
+  diff = diff - (m * 60);
   let s = diff;
 
   counterOnline.innerText = `${h} hours, ${m} minutes, ${s} seconds`;
